@@ -8,5 +8,11 @@ require_relative './exercise_6'
 
 puts "Exercise 7"
 puts "----------"
+@store1 = Store.find_by(id: 1)
+@store1.employees.create(first_name: "Khurram", last_name: "", hourly_rate: 30)
 
-# Your code goes here ...
+puts "What's the name of the new store?"
+store_name = gets.chomp
+@new_store = Store.create(name: store_name)
+errors = @new_store.errors.messages
+errors.each{ |message| puts message }
